@@ -8,8 +8,9 @@ function 함수(x) {
 var john = [123, true];
 var jay = { name: 'park' };
 var User = /** @class */ (function () {
-    function User(name) {
+    function User(name, age) {
         this.name = name;
+        this.age = age;
     }
     return User;
 }());
