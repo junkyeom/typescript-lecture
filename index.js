@@ -22,9 +22,15 @@
 //     }
 // }
 /** typescript 기본 타입 정리 */
-// let 이름:string = 'kim';
-// let 나이:number = 20;
-// let 결혼했니:null = null;
-// let 회원들:string[] = ['kim','park']
-// let 회원들2:{ member1 : string, member2 : string } = { member1 : 'kim', member2 : 'park' }
+var 이름 = 'kim';
+var 나이 = 20;
+var 결혼했니 = null;
+var 회원들 = ['kim', 'park'];
+var 회원들2 = { member1: 'kim', member2: 'park' };
 // 근데 자동으로 타입지정 됨;;
+var artist = { title: 'kidsing', name: 'kanye' };
+var project = {
+    member: ['kim', 'park'],
+    days: 30,
+    started: true,
+};
