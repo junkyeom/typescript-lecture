@@ -39,33 +39,69 @@
 //     started : true,
 //   }
 /** Uniontype, any, unknown*/
-var 회원 = 'kim';
-회원 = 123;
-var 회원들 = [1, '2', 3];
-var 오브젝트 = { a: '123' };
-var 이름;
-이름 = 123;
-이름 = true;
-이름 = {};
-var 이름2;
-이름 = 123;
-이름 = [];
-이름 = true;
-var 변수1 = 이름;
-// let 변수2 :string = 이름2; // 타입쉴드 발동, any보다 안전
-// 타입끼리의 연산 엄격함 ex) 수학연산은 any, number, bigint만 가능
-var 나이;
-// 나이 + 1; // Union이라 에러남 (아예 숫자나 문자면 상관없지만)
-var 나이2; // 나이 +1 ; <- 에러
-//숙제
-var user = 'kim';
-var age = undefined;
-var married = false;
-var 철수 = [user, age, married];
-var 학교 = {
-    score: [100, 97, 84],
-    teacher: 'Phil',
-    friend: 'John'
-};
-학교.score[4] = false;
-학교.friend = ['Lee', 학교.teacher];
+// let 회원 :string | number = 'kim'
+// 회원 = 123
+// let 회원들 :(number | string) [] = [1,'2',3]
+// let 오브젝트 : { a : string | number} = { a : '123'}
+// let 이름 :any;
+// 이름 = 123; 이름 = true; 이름 = {};
+// let 이름2 :unknown;
+// 이름 = 123; 이름 = []; 이름 = true;
+// let 변수1 :string = 이름;
+// // let 변수2 :string = 이름2; // 타입쉴드 발동, any보다 안전
+// // 타입끼리의 연산 엄격함 ex) 수학연산은 any, number, bigint만 가능
+// let 나이 :string | number;
+// // 나이 + 1; // Union이라 에러남 (아예 숫자나 문자면 상관없지만)
+// let 나이2:unknown; // 나이 +1 ; <- 에러
+// //숙제
+// let user:string = 'kim';
+// let age:number|undefined = undefined;
+// let married:boolean = false; 
+// let 철수:(string|number|undefined|boolean)[] = [user, age, married];
+// let 학교 :{
+//     score : (number|boolean)[],
+//     teacher : string,
+//     friend : string | string[]
+// } = {
+//     score : [100, 97, 84],
+//     teacher : 'Phil',
+//     friend : 'John'
+// }
+// 학교.score[4] = false;
+// 학교.friend = ['Lee' , 학교.teacher]
+/** 함수 타입 지정, void 타입 */
+function 함수(x) {
+    return x * 2;
+}
+;
+function 함수2(x) {
+    1 + 1;
+}
+;
+함수(2);
+function 숙제1(x) {
+    if (x) {
+        console.log('안녕하세요' + x);
+    }
+    else {
+        console.log('이름이 없습니다.');
+    }
+}
+function 숙제2(x) {
+    x = x.toString();
+    return x.length;
+}
+숙제2(2);
+function 결혼가능하냐(x, y, z) {
+    var score = 0;
+    score += x;
+    if (y === true) {
+        score += 500;
+    }
+    if (z === '상') {
+        score += 100;
+    }
+    if (score >= 600) {
+        return '결혼가능';
+    }
+}
