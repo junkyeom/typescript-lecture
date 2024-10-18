@@ -70,38 +70,35 @@
 // 학교.score[4] = false;
 // 학교.friend = ['Lee' , 학교.teacher]
 /** 함수 타입 지정, void 타입 */
-function 함수(x) {
-    return x * 2;
-}
-;
-function 함수2(x) {
-    1 + 1;
-}
-;
-함수(2);
-function 숙제1(x) {
-    if (x) {
-        console.log('안녕하세요' + x);
-    }
-    else {
-        console.log('이름이 없습니다.');
-    }
-}
-function 숙제2(x) {
-    x = x.toString();
-    return x.length;
-}
-숙제2(2);
-function 결혼가능하냐(x, y, z) {
-    var score = 0;
-    score += x;
-    if (y === true) {
-        score += 500;
-    }
-    if (z === '상') {
-        score += 100;
-    }
-    if (score >= 600) {
-        return '결혼가능';
-    }
-}
+// function 함수(x :number) :number {
+//     return x*2
+// };
+// function 함수2(x :number) :void{
+//     1+1;
+// };
+// 함수(2)
+// function 숙제1(x : string | undefined):void {
+//     if (x) {
+//         console.log('안녕하세요' +x)
+//     } else {
+//         console.log('이름이 없습니다.')
+//     }
+// }
+// function 숙제2(x :number | string) :number {
+//     x = x.toString()
+//     return x.length
+// }
+// 숙제2(2)
+// function 결혼가능하냐(x:number,y:boolean,z:string) :string | undefined {
+//     let score = 0;
+//     score += x;
+//     if(y===true) {
+//         score += 500;
+//     }
+//     if(z==='상') {
+//         score += 100;
+//     }
+//     if (score>=600) {
+//         return '결혼가능'
+//     } 
+// }                   
