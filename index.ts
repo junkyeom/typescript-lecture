@@ -32,22 +32,64 @@
 
 /** typescript 기본 타입 정리 */
 
-let 이름:string = 'kim';
-let 나이:number = 20;
-let 결혼했니:null = null;
+// let 이름:string = 'kim';
+// let 나이:number = 20;
+// let 결혼했니:null = null;
 
-let 회원들:string[] = ['kim','park']
-let 회원들2:{ member1 : string, member2 : string } = { member1 : 'kim', member2 : 'park' }
+// let 회원들:string[] = ['kim','park']
+// let 회원들2:{ member1 : string, member2 : string } = { member1 : 'kim', member2 : 'park' }
 
 // 근데 자동으로 타입지정 됨;;
 
-let artist:{ title : string, name : string} = { title : 'kidsing', name : 'kanye'}
-let project:{
-    member : string[],
-    days : number,
-    started : boolean,
-  } = {
-    member : ['kim', 'park'],
-    days : 30,
-    started : true,
-  }
+// let artist:{ title : string, name : string} = { title : 'kidsing', name : 'kanye'}
+// let project:{
+//     member : string[],
+//     days : number,
+//     started : boolean,
+//   } = {
+//     member : ['kim', 'park'],
+//     days : 30,
+//     started : true,
+//   }
+
+/** Uniontype, any, unknown*/
+
+let 회원 :string | number = 'kim'
+회원 = 123
+
+let 회원들 :(number | string) [] = [1,'2',3]
+let 오브젝트 : { a : string | number} = { a : '123'}
+
+let 이름 :any;
+이름 = 123; 이름 = true; 이름 = {};
+
+let 이름2 :unknown;
+이름 = 123; 이름 = []; 이름 = true;
+
+let 변수1 :string = 이름;
+// let 변수2 :string = 이름2; // 타입쉴드 발동, any보다 안전
+
+// 타입끼리의 연산 엄격함 ex) 수학연산은 any, number, bigint만 가능
+
+let 나이 :string | number;
+// 나이 + 1; // Union이라 에러남 (아예 숫자나 문자면 상관없지만)
+
+let 나이2:unknown; // 나이 +1 ; <- 에러
+
+//숙제
+let user:string = 'kim';
+let age:number|undefined = undefined;
+let married:boolean = false; 
+let 철수:(string|number|undefined|boolean)[] = [user, age, married];
+
+let 학교 :{
+    score : (number|boolean)[],
+    teacher : string,
+    friend : string | string[]
+} = {
+    score : [100, 97, 84],
+    teacher : 'Phil',
+    friend : 'John'
+}
+학교.score[4] = false;
+학교.friend = ['Lee' , 학교.teacher]
