@@ -101,4 +101,56 @@
 //     if (score>=600) {
 //         return '결혼가능'
 //     } 
-// }                   
+// }                  
+/** narrowing / assertion */
+function 내함수(x) {
+    if (typeof x === 'string') {
+        return x + '1';
+    }
+    else {
+        return x + 1;
+    }
+}
+내함수(123);
+function 내함수2(x) {
+    var array = [];
+    if (typeof x === 'number') {
+        array[0] = x;
+    }
+    else {
+        return '문자 안돼요';
+    }
+}
+내함수2(123);
+function 내함수3(x) {
+    var array = [];
+    array[0] = x;
+}
+내함수2(123);
+function 클리닝함수(x) {
+    var arr = [];
+    x.forEach(function (a) {
+        if (typeof a === 'string') {
+            arr.push(parseInt(a));
+        }
+        else {
+            arr.push(a);
+        }
+    });
+    console.log(arr);
+}
+// 클리닝함수(['1',2,'3'])
+function 만들함수(x) {
+    if (typeof x.subject === 'string') {
+        return x.subject;
+    }
+    else if (Array.isArray(x.subject) === true) {
+        return x.subject[x.subject.length - 1];
+    }
+    else {
+        return '없음';
+    }
+}
+console.log(만들함수({ subject: 'math' })); //이 경우 'math'를 return
+console.log(만들함수({ subject: ['science', 'art', 'korean'] })); //이 경우 'korean'을 return
+console.log(만들함수({ hello: 'hi' })); //이 경우 타입에러 나면 됩니다 
