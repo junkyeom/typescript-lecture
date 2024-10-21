@@ -196,18 +196,18 @@
 
 /** type 변수에 담아쓰기 & readonly */
 
-type Animal = string | number | undefined;
-let 동물 : Animal = 123;
+// type Animal = string | number | undefined;
+// let 동물 : Animal = 123;
 
-type AnimalType = { name : string, age : number};
-let 동물2 : AnimalType = { name : 'kim', age : 4}
+// type AnimalType = { name : string, age : number};
+// let 동물2 : AnimalType = { name : 'kim', age : 4}
 
-// const 변수 특징 -> object 자료 수정 가능
-const 출생지역 = { region : 'Seoul'}
-출생지역.region = 'Busan'
+// // const 변수 특징 -> object 자료 수정 가능
+// const 출생지역 = { region : 'Seoul'}
+// 출생지역.region = 'Busan'
 
-type Girlfriend = { readonly name : string };
-const 여친:Girlfriend = { name : 'amber' }
+// type Girlfriend = { readonly name : string };
+// const 여친:Girlfriend = { name : 'amber' }
 // 여친.name = '유라' // readonly 써서 에러남
 
 // type Name = string;
@@ -243,20 +243,76 @@ const 여친:Girlfriend = { name : 'amber' }
 
 /** Literal types */
 
-let 이름:'kim'; 
-let 접니다:'대머리'|'솔로';
+// let 이름:'kim'; 
+// let 접니다:'대머리'|'솔로';
 
-function 함수(a:'hello') :1|0 {
- return 1
+// function 함수(a:'hello') :1|0 {
+//  return 1
+// }
+
+// 함수('hello')
+
+// var 자료 ={
+//     name : 'kim'
+// } as const
+
+// function 내함수(a :'kim') {
+
+// }
+// 내함수(자료.name)
+
+
+/** 함수와 method에 type alias 지정하는 법 */
+
+type 함수타입 = (a :string) => number
+
+let 함수:함수타입 = function(){
+    return 10
 }
 
-함수('hello')
+type member = {
+    name : string,
+    age : number,
+    plusOne : (a :number) => number
+    changeName : () => void
+};
 
-var 자료 ={
-    name : 'kim'
-} as const
-
-function 내함수(a :'kim') {
-
+let 회원정보:member = {
+    name : 'kim',
+    age : 30,
+    plusOne(a:number) :number{
+        return 5
+    },
+    changeName : () => {}
 }
-내함수(자료.name)
+
+회원정보.plusOne(4)
+
+type CutZeroType = (a:string) => string;
+let cutZero:CutZeroType = (a) => {
+    if(a[0] === '0') {
+        return a.slice(1)
+    } else {
+        return a
+    }
+}
+
+type RemoveDashType = (a:string) => number;
+let removeDash:RemoveDashType = (a) => {
+    let result = a.replace(/-/g,"")
+    return parseFloat(result);
+}
+
+type 만들함수타입 = (
+    x : string,
+    y : CutZeroType,
+    z : RemoveDashType
+) => void;
+
+let 만들함수:만들함수타입 = function(x, y, z) {
+    let result = z(y(x));
+    console.log(result)
+}
+
+만들함수('010-1111-2222', cutZero, removeDash)
+
