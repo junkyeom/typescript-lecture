@@ -210,32 +210,53 @@ type Girlfriend = { readonly name : string };
 const 여친:Girlfriend = { name : 'amber' }
 // 여친.name = '유라' // readonly 써서 에러남
 
-type Name = string;
-type Age = number;
-type Person = Name | Age;
+// type Name = string;
+// type Age = number;
+// type Person = Name | Age;
 
-type PositionX = { x : number };  // type 변수 재정의 불가능
-type PositionY = { y : number };
-type NewType = PositionX & PositionY;  // & 연산자로 object 타입 extend 하기
-let position:NewType = { x:10, y:20 }
+// type PositionX = { x : number };  // type 변수 재정의 불가능
+// type PositionY = { y : number };
+// type NewType = PositionX & PositionY;  // & 연산자로 object 타입 extend 하기
+// let position:NewType = { x:10, y:20 }
 
-// 숙제
-// -> object 타입을 정의한 type alias 두개를 & 기호로 합칠 때 중복된 속성이 있으면
-type 숙제obj1 = {name:string, age:number}
-type 숙제obj2 = {name:string, married:boolean}
-type 숙제obj = 숙제obj1 & 숙제obj2
-let 숙제오브제:숙제obj = {name : 'ㅇ', age : 29, married : true}
+// // 숙제
+// // -> object 타입을 정의한 type alias 두개를 & 기호로 합칠 때 중복된 속성이 있으면
+// type 숙제obj1 = {name:string, age:number}
+// type 숙제obj2 = {name:string, married:boolean}
+// type 숙제obj = 숙제obj1 & 숙제obj2
+// let 숙제오브제:숙제obj = {name : 'ㅇ', age : 29, married : true}
 
-type 숙제2 = {
-    color? : string,
-    size : number,
-    readonly position : number[]
+// type 숙제2 = {
+//     color? : string,
+//     size : number,
+//     readonly position : number[]
+// }
+
+// type 숙제3 = { 
+//     name : string, phone : number, email : string 
+// }
+// let 인포:숙제3 = { name : 'kim', phone : 123, email : 'abc@naver.com' }
+
+// type 숙제4 = { adult: boolean }
+// type 숙제34 = 숙제3 & 숙제4
+
+
+/** Literal types */
+
+let 이름:'kim'; 
+let 접니다:'대머리'|'솔로';
+
+function 함수(a:'hello') :1|0 {
+ return 1
 }
 
-type 숙제3 = { 
-    name : string, phone : number, email : string 
-}
-let 인포:숙제3 = { name : 'kim', phone : 123, email : 'abc@naver.com' }
+함수('hello')
 
-type 숙제4 = { adult: boolean }
-type 숙제34 = 숙제3 & 숙제4
+var 자료 ={
+    name : 'kim'
+} as const
+
+function 내함수(a :'kim') {
+
+}
+내함수(자료.name)
