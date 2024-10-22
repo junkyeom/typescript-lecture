@@ -264,55 +264,55 @@
 
 /** 함수와 method에 type alias 지정하는 법 */
 
-type 함수타입 = (a :string) => number
+// type 함수타입 = (a :string) => number
 
-let 함수:함수타입 = function(){
-    return 10
-}
+// let 함수:함수타입 = function(){
+//     return 10
+// }
 
-type member = {
-    name : string,
-    age : number,
-    plusOne : (a :number) => number
-    changeName : () => void
-};
+// type member = {
+//     name : string,
+//     age : number,
+//     plusOne : (a :number) => number
+//     changeName : () => void
+// };
 
-let 회원정보:member = {
-    name : 'kim',
-    age : 30,
-    plusOne(a:number) :number{
-        return 5
-    },
-    changeName : () => {}
-}
+// let 회원정보:member = {
+//     name : 'kim',
+//     age : 30,
+//     plusOne(a:number) :number{
+//         return 5
+//     },
+//     changeName : () => {}
+// }
 
-회원정보.plusOne(4)
+// 회원정보.plusOne(4)
 
-type CutZeroType = (a:string) => string;
-let cutZero:CutZeroType = (a) => {
-    if(a[0] === '0') {
-        return a.slice(1)
-    } else {
-        return a
-    }
-}
+// type CutZeroType = (a:string) => string;
+// let cutZero:CutZeroType = (a) => {
+//     if(a[0] === '0') {
+//         return a.slice(1)
+//     } else {
+//         return a
+//     }
+// }
 
-type RemoveDashType = (a:string) => number;
-let removeDash:RemoveDashType = (a) => {
-    let result = a.replace(/-/g,"")
-    return parseFloat(result);
-}
+// type RemoveDashType = (a:string) => number;
+// let removeDash:RemoveDashType = (a) => {
+//     let result = a.replace(/-/g,"")
+//     return parseFloat(result);
+// }
 
-type 만들함수타입 = (
-    x : string,
-    y : CutZeroType,
-    z : RemoveDashType
-) => void;
+// type 만들함수타입 = (
+//     x : string,
+//     y : CutZeroType,
+//     z : RemoveDashType
+// ) => void;
 
-let 만들함수:만들함수타입 = function(x, y, z) {
-    let result = z(y(x));
-    console.log(result)
-}
+// let 만들함수:만들함수타입 = function(x, y, z) {
+//     let result = z(y(x));
+//     console.log(result)
+// }
 
-만들함수('010-1111-2222', cutZero, removeDash)
+// 만들함수('010-1111-2222', cutZero, removeDash)
 
