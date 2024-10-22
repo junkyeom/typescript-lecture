@@ -316,3 +316,48 @@
 
 // 만들함수('010-1111-2222', cutZero, removeDash)
 
+// 10/22 여기까지 
+
+
+/** ts로 html 조작 */
+
+let 제목 = document.querySelector('#title')
+if (제목 != null) {
+    제목.innerHTML = '반갑다'
+}
+if (제목 instanceof Element) { // 가장 많이 쓰게 될것.
+    제목.innerHTML = '반갑다'
+}
+let 제목1 = document.querySelector('#title') as Element; //assertion
+제목1.innerHTML = '반갑다'
+
+if (제목?.innerHTML != undefined) {
+    제목.innerHTML = '반갑다'
+}
+let 링크 = document.querySelector('.link')
+if (링크 instanceof HTMLAnchorElement) {
+    링크.href = 'https://kakao.com'
+}
+
+let 버튼 = document.querySelector('#button')
+버튼?.addEventListener('click', function(){
+    console.log('야호')
+})
+
+//숙제
+let 사진 = document.querySelector('img')
+if(사진 instanceof HTMLImageElement) {
+    사진.src = "new.jpg"
+}
+
+let link = document.querySelectorAll('.naver') 
+
+link.forEach((a)=>{
+    if(a instanceof HTMLAnchorElement) {
+        a.href = 'https://kakao.com'
+    }
+})
+
+
+
+

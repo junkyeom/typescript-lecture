@@ -240,3 +240,36 @@
 //     console.log(result)
 // }
 // 만들함수('010-1111-2222', cutZero, removeDash)
+// 10/22 여기까지 
+/** ts로 html 조작 */
+var 제목 = document.querySelector('#title');
+if (제목 != null) {
+    제목.innerHTML = '반갑다';
+}
+if (제목 instanceof Element) { // 가장 많이 쓰게 될것.
+    제목.innerHTML = '반갑다';
+}
+var 제목1 = document.querySelector('#title'); //assertion
+제목1.innerHTML = '반갑다';
+if ((제목 === null || 제목 === void 0 ? void 0 : 제목.innerHTML) != undefined) {
+    제목.innerHTML = '반갑다';
+}
+var 링크 = document.querySelector('.link');
+if (링크 instanceof HTMLAnchorElement) {
+    링크.href = 'https://kakao.com';
+}
+var 버튼 = document.querySelector('#button');
+버튼 === null || 버튼 === void 0 ? void 0 : 버튼.addEventListener('click', function () {
+    console.log('야호');
+});
+//숙제
+var 사진 = document.querySelector('img');
+if (사진 instanceof HTMLImageElement) {
+    사진.src = "new.jpg";
+}
+var link = document.querySelectorAll('.naver');
+link.forEach(function (a) {
+    if (a instanceof HTMLAnchorElement) {
+        a.href = 'https://kakao.com';
+    }
+});
