@@ -359,77 +359,77 @@
 // })
 
 /** class 만들 때 타입지정 */
-class Person {
-    name :string;
-    constructor(name:string) {
-        this.name = name;
-    }
-    함수(a :string)  {
-        console.log('나야,' + a)
-    }
-}
+// class Person {
+//     name :string;
+//     constructor(name:string) {
+//         this.name = name;
+//     }
+//     함수(a :string)  {
+//         console.log('나야,' + a)
+//     }
+// }
 
-let 사람1 = new Person('kim');
-let 사람2 = new Person('park');
-사람1.함수('제이팍')
+// let 사람1 = new Person('kim');
+// let 사람2 = new Person('park');
+// 사람1.함수('제이팍')
 
-/** object에 타입지정할때 ierface 쓸 수 있음 */
+// /** object에 타입지정할때 ierface 쓸 수 있음 */
 
-// inteface 특징 : 등호 X, extends로 복사 가능, 중복 선언 가능(속성 중복은 X)
-interface Squre { 
-    color : string;
-    width : number;
-} 
+// // inteface 특징 : 등호 X, extends로 복사 가능, 중복 선언 가능(속성 중복은 X)
+// interface Squre { 
+//     color : string;
+//     width : number;
+// } 
 
-let 네모:Squre = { color : 'red', width : 100, }
+// let 네모:Squre = { color : 'red', width : 100, }
 
-type Animal = { name : string }
-type Cat = { age : number } & Animal
+// type Animal = { name : string }
+// type Cat = { age : number } & Animal
 
-interface Student { 
-    name : string;
-} 
-interface Student { 
-    male : boolean;
-} 
-interface Teacher extends Student {
-    age : number;
-}
+// interface Student { 
+//     name : string;
+// } 
+// interface Student { 
+//     male : boolean;
+// } 
+// interface Teacher extends Student {
+//     age : number;
+// }
 
-let 학생 = { name : 'kim' }
-let 선생 = { name : 'kim', age : 20}
+// let 학생 = { name : 'kim' }
+// let 선생 = { name : 'kim', age : 20}
 
-// 숙제
+// // 숙제
 
-interface Product { 
-    brand : string; 
-    serialNumber : number;
-     model : string[] 
-}
+// interface Product { 
+//     brand : string; 
+//     serialNumber : number;
+//      model : string[] 
+// }
 
-let 상품 = { brand : 'Samsung', serialNumber : 1360, model : ['TV', 'phone'] }
+// let 상품 = { brand : 'Samsung', serialNumber : 1360, model : ['TV', 'phone'] }
 
-interface Cart {
-    product : string;
-    price : number;
-}
+// interface Cart {
+//     product : string;
+//     price : number;
+// }
 
-interface Card extends Cart{
-    card :boolean;
-}
+// interface Card extends Cart{
+//     card :boolean;
+// }
 
-let 장바구니 : Cart[]= [ { product : '청소기', price : 7000 }, { product : '삼다수', price : 800 } ] 
+// let 장바구니 : Cart[]= [ { product : '청소기', price : 7000 }, { product : '삼다수', price : 800 } ] 
 
-interface objType {
-    plus : (a:number, b:number) => number
-    minus : (a:number, b:number) => number
-}
+// interface objType {
+//     plus : (a:number, b:number) => number
+//     minus : (a:number, b:number) => number
+// }
 
-let obj:objType = {
-    plus(a,b) {
-        return a+b
-    },
-    minus(a,b) {
-        return a-b
-    }
-}
+// let obj:objType = {
+//     plus(a,b) {
+//         return a+b
+//     },
+//     minus(a,b) {
+//         return a-b
+//     }
+// }
