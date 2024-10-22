@@ -321,43 +321,55 @@
 
 /** ts로 html 조작 */
 
-let 제목 = document.querySelector('#title')
-if (제목 != null) {
-    제목.innerHTML = '반갑다'
-}
-if (제목 instanceof Element) { // 가장 많이 쓰게 될것.
-    제목.innerHTML = '반갑다'
-}
-let 제목1 = document.querySelector('#title') as Element; //assertion
-제목1.innerHTML = '반갑다'
+// let 제목 = document.querySelector('#title')
+// if (제목 != null) {
+//     제목.innerHTML = '반갑다'
+// }
+// if (제목 instanceof Element) { // 가장 많이 쓰게 될것.
+//     제목.innerHTML = '반갑다'
+// }
+// let 제목1 = document.querySelector('#title') as Element; //assertion
+// 제목1.innerHTML = '반갑다'
 
-if (제목?.innerHTML != undefined) {
-    제목.innerHTML = '반갑다'
-}
-let 링크 = document.querySelector('.link')
-if (링크 instanceof HTMLAnchorElement) {
-    링크.href = 'https://kakao.com'
-}
+// if (제목?.innerHTML != undefined) {
+//     제목.innerHTML = '반갑다'
+// }
+// let 링크 = document.querySelector('.link')
+// if (링크 instanceof HTMLAnchorElement) {
+//     링크.href = 'https://kakao.com'
+// }
 
-let 버튼 = document.querySelector('#button')
-버튼?.addEventListener('click', function(){
-    console.log('야호')
-})
+// let 버튼 = document.querySelector('#button')
+// 버튼?.addEventListener('click', function(){
+//     console.log('야호')
+// })
 
-//숙제
-let 사진 = document.querySelector('img')
-if(사진 instanceof HTMLImageElement) {
-    사진.src = "new.jpg"
-}
+// //숙제
+// let 사진 = document.querySelector('img')
+// if(사진 instanceof HTMLImageElement) {
+//     사진.src = "new.jpg"
+// }
 
-let link = document.querySelectorAll('.naver') 
+// let link = document.querySelectorAll('.naver') 
 
-link.forEach((a)=>{
-    if(a instanceof HTMLAnchorElement) {
-        a.href = 'https://kakao.com'
+// link.forEach((a)=>{
+//     if(a instanceof HTMLAnchorElement) {
+//         a.href = 'https://kakao.com'
+//     }
+// })
+
+/** class 만들 때 타입지정 */
+class Person {
+    name :string;
+    constructor(name:string) {
+        this.name = name;
     }
-})
+    함수(a :string)  {
+        console.log('나야,' + a)
+    }
+}
 
 
-
-
+let 사람1 = new Person('kim');
+let 사람2 = new Person('park');
+사람1.함수('제이팍')
