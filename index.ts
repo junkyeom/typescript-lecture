@@ -369,7 +369,67 @@ class Person {
     }
 }
 
-
 let 사람1 = new Person('kim');
 let 사람2 = new Person('park');
 사람1.함수('제이팍')
+
+/** object에 타입지정할때 ierface 쓸 수 있음 */
+
+// inteface 특징 : 등호 X, extends로 복사 가능, 중복 선언 가능(속성 중복은 X)
+interface Squre { 
+    color : string;
+    width : number;
+} 
+
+let 네모:Squre = { color : 'red', width : 100, }
+
+type Animal = { name : string }
+type Cat = { age : number } & Animal
+
+interface Student { 
+    name : string;
+} 
+interface Student { 
+    male : boolean;
+} 
+interface Teacher extends Student {
+    age : number;
+}
+
+let 학생 = { name : 'kim' }
+let 선생 = { name : 'kim', age : 20}
+
+// 숙제
+
+interface Product { 
+    brand : string; 
+    serialNumber : number;
+     model : string[] 
+}
+
+let 상품 = { brand : 'Samsung', serialNumber : 1360, model : ['TV', 'phone'] }
+
+interface Cart {
+    product : string;
+    price : number;
+}
+
+interface Card extends Cart{
+    card :boolean;
+}
+
+let 장바구니 : Cart[]= [ { product : '청소기', price : 7000 }, { product : '삼다수', price : 800 } ] 
+
+interface objType {
+    plus : (a:number, b:number) => number
+    minus : (a:number, b:number) => number
+}
+
+let obj:objType = {
+    plus(a,b) {
+        return a+b
+    },
+    minus(a,b) {
+        return a-b
+    }
+}
